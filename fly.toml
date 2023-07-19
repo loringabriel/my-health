@@ -1,4 +1,4 @@
-app = "my-health-573c"
+app = "my-health"
 primary_region = "sjc"
 kill_signal = "SIGINT"
 kill_timeout = 5
