@@ -78,6 +78,11 @@ export default function UsernameRoute() {
 									</Link>
 								</Button>
 								<Button asChild>
+									<Link to="measurements" prefetch="intent">
+										My measurements
+									</Link>
+								</Button>
+								<Button asChild>
 									<Link to="/settings/profile" prefetch="intent">
 										Edit profile
 									</Link>

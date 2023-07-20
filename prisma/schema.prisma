@@ -62,10 +62,11 @@ model User {
   image   Image?  @relation(fields: [imageId], references: [fileId])
   imageId String? @unique
 
-  password Password?
-  notes    Note[]
-  roles    Role[]
-  session  Session[]
+  password     Password?
+  notes        Note[]
+  roles        Role[]
+  session      Session[]
+  measurements Measurements[]
 }
 
 model Password {
@@ -124,4 +125,17 @@ model Note {
   // our user search orders by recently owners who have recently updated notes
   // so indexing on the owner ID helps with that (a LOT).
   @@index([ownerId, updatedAt(sort: Desc)])
+}
+
+model Measurements {
+  id          String   @id @unique @default(cuid())
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  sys         String
+  dia         String
+  pulse       String
+
+  owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  ownerId String
 }

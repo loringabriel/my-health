@@ -7,7 +7,7 @@ import {
 } from '~/components/ui/tooltip.tsx'
 import { logos, stars } from './logos/logos.ts'
 
-export const meta: V2_MetaFunction = () => [{ title: 'Epic Notes' }]
+export const meta: V2_MetaFunction = () => [{ title: 'My Health' }]
 
 export default function Index() {
 	return (
@@ -25,7 +25,7 @@ export default function Index() {
 									className="block uppercase text-white drop-shadow-md"
 									href="https://www.epicweb.dev/stack"
 								>
-									<span>Epic Stack</span>
+									<span>My health</span>
 									<svg
 										className="mx-auto mt-2"
 										xmlns="http://www.w3.org/2000/svg"

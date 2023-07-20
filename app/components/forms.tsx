@@ -4,6 +4,7 @@ import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx'
 import { Checkbox, type CheckboxProps } from '~/components/ui/checkbox.tsx'
 import { Textarea } from '~/components/ui/textarea.tsx'
+import { DatePicker } from '~/components/ui/date-picker.tsx'
 
 export type ListOfErrors = Array<string | null | undefined> | null | undefined
 
@@ -141,6 +142,38 @@ export function CheckboxField({
 				/>
 			</div>
 			<div className="px-4 pb-3 pt-1">
+				{errorId ? <ErrorList id={errorId} errors={errors} /> : null}
+			</div>
+		</div>
+	)
+}
+
+export function DateField({
+	labelProps,
+	inputProps,
+	errors,
+	className,
+}: {
+	labelProps: React.LabelHTMLAttributes<HTMLLabelElement>
+	inputProps: React.InputHTMLAttributes<HTMLInputElement>
+	errors?: ListOfErrors
+	className?: string
+}) {
+	const fallbackId = useId()
+	const id = inputProps.id ?? fallbackId
+	const errorId = errors?.length ? `${id}-error` : undefined
+	return (
+		<div className={className}>
+			<Label htmlFor={id} {...labelProps} />
+			<DatePicker
+				inputProps={{
+					id,
+					'aria-invalid': errorId ? true : undefined,
+					'aria-describedby': errorId,
+					...inputProps,
+				}}
+			/>
+			<div className="min-h-[32px] px-4 pb-3 pt-1">
 				{errorId ? <ErrorList id={errorId} errors={errors} /> : null}
 			</div>
 		</div>

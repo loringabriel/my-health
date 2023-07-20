@@ -190,8 +190,8 @@ function App() {
 				<header className="container py-6">
 					<nav className="flex items-center justify-between">
 						<Link to="/">
-							<div className="font-light">epic</div>
-							<div className="font-bold">notes</div>
+							<div className="font-light">my</div>
+							<div className="font-bold">health</div>
 						</Link>
 						{isOnSearchPage ? null : (
 							<div className="ml-auto max-w-sm flex-1 pr-10">
@@ -216,8 +216,8 @@ function App() {
 
 				<div className="container flex justify-between pb-5">
 					<Link to="/">
-						<div className="font-light">epic</div>
-						<div className="font-bold">notes</div>
+						<div className="font-light">my</div>
+						<div className="font-bold">health</div>
 					</Link>
 					<ThemeSwitch userPreference={data.requestInfo.userPrefs.theme} />
 				</div>
@@ -267,6 +267,13 @@ function UserDropdown() {
 						<Link prefetch="intent" to={`/users/${user.username}/notes`}>
 							<Icon className="text-body-md" name="pencil-2">
 								Notes
+							</Icon>
+						</Link>
+					</DropdownMenuItem>
+					<DropdownMenuItem asChild>
+						<Link prefetch="intent" to={`/users/${user.username}/measurements`}>
+							<Icon className="text-body-md" name="magnifying-glass">
+								Measurements
 							</Icon>
 						</Link>
 					</DropdownMenuItem>
